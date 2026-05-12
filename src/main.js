@@ -58,3 +58,12 @@ document.querySelector('#app').innerHTML = `
 `
 
 setupCounter(document.querySelector('#counter'))
+async function getUsers() {
+ try {
+  const response = await fetch('/api/users')
+  const data = await response.json()
+  console.log('User Data:', data)
+ } catch (error) {
+  console.error('Failed to call users', error)
+ }
+}window.addEventListener('click', getUsers)
